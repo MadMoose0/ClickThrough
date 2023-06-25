@@ -64,17 +64,6 @@ public class ItemUseMixin {
                     if (!(entity instanceof SignBlockEntity)) {
                         return;
                     }
-                    
-                    for (int i=0; i<4; i++) {
-                        Pattern pattern;
-                        if ((pattern = ConfigurationHandler.getIgnorePattern(i)) != null) {
-                            String signText = ClickThrough.getSignRowText((SignBlockEntity) entity, i);
-                            if (pattern.matcher(signText).matches()) {
-                                System.out.println("not clicking through because "+pattern+" matches "+signText);
-                                return;
-                            }
-                        }
-                    }
 
                     Item item = player.getStackInHand(Hand.MAIN_HAND).getItem();
                     if (item instanceof DyeItem || item == Items.GLOW_INK_SAC) {
