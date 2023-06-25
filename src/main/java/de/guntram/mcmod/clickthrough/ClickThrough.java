@@ -20,22 +20,5 @@ public class ClickThrough implements ClientModInitializer
     
     static public boolean isDyeOnSign = false;
     static public boolean needToSneakAgain = false;
-    
-    public static String getSignRowText(SignBlockEntity sign, int row) {
-        StringBuilder builder =  new StringBuilder();
-        
-        return sign.getTextOnRow(row, true).getString();
-        /* 
-        OrderedText result = sign.getTextBeingEditedOnRow(row, (t) -> {
-            return t.asOrderedText();
-        });
-
-        result.accept((index, style, codepoint) -> {
-            builder.appendCodePoint(codepoint);
-            return true;
-        } );
-        
-        return builder.toString();
-*/
-    }    
+     
 }
