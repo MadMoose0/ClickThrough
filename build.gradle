@@ -11,9 +11,9 @@ buildscript {
 }
 
 plugins {
-    id 'fabric-loom' version '0.12-+'
+	id 'fabric-loom' version '1.1-SNAPSHOT'
 	id "com.modrinth.minotaur" version "2.+"
-    id "com.matthewprenger.cursegradle" version "1.4.0"
+	id "com.matthewprenger.cursegradle" version "1.4.0"
 }
 
 apply plugin: 'de.guntram.mcmod.crowdin-translate'
@@ -29,16 +29,19 @@ repositories {
     maven {
         url = "https://maven.terraformersmc.com/releases/"
     }
+    maven {
+        url = "https://maven.shedaniel.me/"
+    }
 }
 
 sourceCompatibility = 17
 targetCompatibility = 17
 
 ext.Versions = new Properties()
-Versions.load(file("Versionfiles/mcversion-1.19.3.properties").newReader())
+Versions.load(file("Versionfiles/mcversion-1.20.1.properties").newReader())
 
 archivesBaseName = "clickthrough"
-ext.projectVersion = "0.4"
+ext.projectVersion = "0.41"
 
 version = "${Versions['minecraft_version']}-fabric${Versions['fabric_versiononly']}-${project.projectVersion}"
 
@@ -70,7 +73,7 @@ dependencies {
 // if it is present.
 // If you remove this task, sources will not be generated.
 task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
+    archiveClassifier = 'sources'
     from sourceSets.main.allSource
 }
 
